@@ -4,13 +4,13 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+app.use(express.json());
+
 dotenv.config({ path: './config.env' });
 
 const PORT = process.env.PORT;
 
 require('./db/conn');
-
-app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'build')));
 
